@@ -51,7 +51,7 @@ ORDER BY rt.emp_no, rt.to_date DESC;`
 
 Running this code will generate the following table.
 
-![]/(Resources/retirement_titles_depts.png)
+![](/Resources/retirement_titles_depts.png)
 
 
 Additionaly, I recommend identifying the count of each title being retired from any department. To have this information I used this query:
@@ -65,7 +65,7 @@ ORDER BY rtd.dept_name DESC;`
 
 Which Resulted in this table:
 
-![]/(Resources/retiree_title_depts.png)
+![](/Resources/retiree_title_depts.png)
 
 
 
