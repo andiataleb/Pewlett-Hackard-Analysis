@@ -35,6 +35,7 @@ Among the total number the retirement-ready employees,only 2.1% of them eligible
 In order to have a better insight to the upcoming tsunami of retirements my suggestion is to identify the departments with most employees who are retiring. Moreover, basing the mentorship eligiblity solely on the date of birth of the employees may not yield to the most practical group of mentors for next generation training as they may be from the titles that won't have many open positions. Therefore, my recomendation is to also take the title of the mentors in to consideration so that we can modify the criteria if it's needed.
 Below you can see the queries to identify the department of each future retiree. 
 
+
 `SELECT DISTINCT ON (rt.emp_no) rt.emp_no,
 	rt.first_name,
 	rt.last_name,
@@ -48,5 +49,23 @@ INNER JOIN departments as d
 ON (d.dept_no = de.dept_no)
 ORDER BY rt.emp_no, rt.to_date DESC;`
 
-*Determining the departments of retirees
-*Determining the title of mentorship eligiblity
+Running this code will generate the following table.
+
+![]/(Resources/retirement_titles_depts.png)
+
+
+Additionaly, I recommend identifying the count of each title being retired from any department. To have this information I used this query:
+
+`SELECT COUNT(rtd.title), 
+	rtd.title,
+	rtd.dept_name
+FROM retirement_titles_depts AS rtd
+GROUP BY rtd.dept_name, rtd.title
+ORDER BY rtd.dept_name DESC;`
+
+Which Resulted in this table:
+
+![]/(Resources/retiree_title_depts.png)
+
+
+
